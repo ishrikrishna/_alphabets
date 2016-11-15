@@ -1,0 +1,80 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+/**
+  * This class deals with alphabets of 
+  * english language.
+  *
+  * @author Shrikrishna Meena
+  * @created 15 November 2016
+  */
+class _alphabets {
+    // Declaring multi-dimensional vector 
+    // of character array
+   vector< vector<char> > alphaBets;
+   }
+   public: 
+   
+   //constructor
+   _alphabets(){
+   
+       int i = 1;
+       vector<char> row = {' ',' '};
+       // Adding an empty row
+       // So that index could start from 1 
+       // for alphabets
+       this->alphaBets.push_back(row);
+       
+       // Populating the lower case 
+       // first column of member variable
+        for(char a='a';a<='z';a++){
+           row[0] = a;
+           this->alphaBets.push_back(row);
+           i++;
+        }
+        
+        i = 1;
+        // Populating the upper case letters 
+        // in second column
+        for(char A='A';A<='Z';A++){
+           this->alphaBets[i][1] = A;
+           i++;
+        }
+        
+        // Populating an additional space character
+        // used often in strings
+        // Well, first row also contains the 
+        // same data
+        row[0] = ' ';
+        this->alphaBets.push_back(row);
+   }
+   
+   /**
+     * returns the list of alphabets 
+     * as multi-dimensional vector characters array
+     * First column  : Contains lowercase letters
+     * Second column : Contains upper case letters
+     * Last row      : Contains Space character
+     * 
+     * For usage instructions 
+     * please check main function.
+     */
+   vector< vector<char> > getList(){
+      return this->alphaBets;
+   }
+};
+
+int main() {
+
+    // An example on how to utilise above class
+    _alphabets a;
+    vector< vector<char> > abc = a.getList();
+    
+    // Prinnting lowercase of 
+    // 10th alphabet of english language
+    // 0: lowercase
+    // 1: Uppercase
+    cout << abc[10][0];
+    return 0;
+}
